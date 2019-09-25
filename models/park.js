@@ -6,12 +6,12 @@ const Park = function (name, ticketPrice, collectionOfDinosaurs, addDinosaur){
 
 }
 Park.prototype.add = function(dinosaur) {
-   this.dinosaurs.push(dinosaur);
+   this.collectionOfDinosaurs.push(dinosaur);
 };
 
 Park.prototype.remove = function(dinosaur) {
-  const dinoToRemove = this.dinosaurs.indexOf(dinosaur);
-  this.dinosaurs.splice(dinoToRemove, 1);
+  const dinoToRemove = this.collectionOfDinosaurs.indexOf(dinosaur);
+  this.collectionOfDinosaurs.splice(dinoToRemove, 1);
 };
 
 // park.prototype.findMostAttractiveDinosaur = function (){

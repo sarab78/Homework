@@ -28,7 +28,7 @@ describe('Park', function() {
 
   it('should be able to add a dinosaur to its collection', function(){
     park.add(dinosaur1);
-    const actual = park.dinosaurs;
+    const actual = park.collectionOfDinosaurs;
     assert.deepStrictEqual(actual, [dinosaur1])
   });
 
@@ -36,21 +36,35 @@ describe('Park', function() {
     park.add('t-rex');
     park.add('baryonyx');
     park.remove('baryonyx');
-    const actual = park.dinosaurs;
-    assert.deepStrictEqual(actual, ['baryonyx'])
+    const actual = park.collectionOfDinosaurs;
+    assert.deepStrictEqual(actual, ['t-rex'])
   });
 
 
-//   it('should be able to find the dinosaur that attracts the most visitors', function(){
-//     park.add(trex1)
-//     const actual = park.mostPopularDinosaur
-//     assert.strictEqual(actual, t-rex)
-//   });
-//
-//   it('should be able to find all dinosaurs of a particular species');
-// , function(){
-// 
-}
+  it('should be able to find the dinosaur that attracts the most visitors', function(){
+    park.add(trex1);
+    park.add(trex2);
+    park.add(trex3);
+    park.add(velociraptor1);
+    park.add(diplodocus);
+    park.add(gallimimus);
+    const actual = park.findMostAttractiveDinosaur();
+    assert.deepstrictEqual(actual, t-rex3)
+  });
+
+  it('should be able to find all dinosaurs of a particular species', function()){
+    park.add(trex1);
+    park.add(velociraptor1);
+    park.add(velociraptor2);
+    park.add(diplodocus);
+    park.add(gallimimus);
+    const actual = park.findBySpecies('velociraptor1');
+    const expected = [velociraptor1, velociraptor2];
+    assert.deepStrictEqual(actual, expected);
+  };
+
+
+
 
 
   it('should be able to remove all dinosaurs of a particular species');
